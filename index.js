@@ -10,8 +10,8 @@ const Intern = require('./lib/Intern');
 //array for user input and output
 let teamarray = [];
 
-
-const createTeam = async () => {
+//change to prompt team and use create team for return on line 146, if it doesn't work turn back into create team
+const promptTeam = async () => {
     console.log('Create Employees')
     const answers = await inquirer.prompt([
         //create array of question objects
@@ -100,5 +100,54 @@ const createTeam = async () => {
                 }
             }
         ])
+        //creating a 'new' engineer
+        const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub);
+        teamarray.push(newEngineer);
+    }else if (answers.role === "Intern"){
+        const internAnswer = await inquirer.prompt([
+            {
+                name: 'school',
+                type: 'input',
+                message: 'School Name:',
+                validate: schoolInput => {
+                    if(schoolInput){
+                        return true;
+                    }else  {
+                        console.log('School name needed');
+                        return false;
+                    }
+                }
+            }
+        ])
+        //creating a new intern
+        const newIntern = new Intern(answers.name, answers.id, answers.email,internAnswer.school);
+        teamarray.push(newIntern);
     }
+};
+//prompt end
+
+//user experience to add team member
+async function promptNewEmployee(){
+    await promptTeam()
+    
+    const newEmployeeAsnwer = await inquirer.prompt([
+        {
+            name: 'addMember',
+            //will make it a list so users can choose
+            type: 'list',
+            message: 'Add another team member or completed',
+            choices: ['Add to team', 'Finished']
+        },
+    ])
+
+    if (newEmployeeAsnwer.addMember === 'Add to team'){
+        return promptNewEmployee()
+    }
+    return createTeam();
 }
+//call new employee
+promptNewEmployee();
+function createTeam(){
+    console.log("New employee", teamarray)
+}
+ 
