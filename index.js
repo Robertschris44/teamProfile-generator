@@ -11,7 +11,7 @@ const Intern = require('./lib/Intern');
 let teamarray = [];
 
 
-const createManager = async () => {
+const createTeam = async () => {
     console.log('Create Employees')
     const answers = await inquirer.prompt([
         //create array of question objects
@@ -63,4 +63,42 @@ const createManager = async () => {
             choices: ['Manager', 'Engineer', 'Intern'],
         }
     ])
+//will put office number info  here
+    if (answers.role === "Manager") {
+        const managerAnswer = await inquirer.prompt([
+            {
+                name: 'officeNumber',
+                type: 'input',
+                message: 'Office number:',
+                validate: officeNumberInput => {
+                    if (officeNumberInput){
+                        return true;
+                    }else {
+                        console.log('Office number needed');
+                        return false;
+                    }
+                }             
+            }, 
+        ])
+//creating new manager answers
+        const newManager = new Manager(answers.name, answers.id, answers.email, managerAnswer.officeNumber);
+        teamarray.push(newManager)
+
+    }else if (answers.role === "Engineer"){
+        const engineerAnswer = await inquirer.prompt([
+            {
+                name: 'gitHub',
+                type: 'input',
+                message: 'GitHub Username',
+                validate: gitHubInput => {
+                    if(gitHubInput){
+                        return true;
+                    }else {
+                        console.log('GitHub Username needed');
+                        return false;
+                    }
+                }
+            }
+        ])
+    }
 }
