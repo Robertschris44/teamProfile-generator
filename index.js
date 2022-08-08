@@ -149,5 +149,7 @@ async function promptNewEmployee(){
 promptNewEmployee();
 function createTeam(){
     console.log("New employee", teamarray)
+    //fs write file goes here module 9.5.4
+    fs.writeFile('./dist/index.html', generateHTML)
 }
  
