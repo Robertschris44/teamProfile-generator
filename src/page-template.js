@@ -72,11 +72,11 @@ html.push(team.filter((employee) => employee.getRole() === "Manager")
 
 
 html.push(team.filter((employee) => employee.getRole() === "Intern")
-.map((intern) => generateManager(intern)).join("")
+.map((intern) => generateIntern(intern)).join("")
 );
 
 html.push(team.filter((employee) => employee.getRole() === "Engineer")
-.map((engineer) => generateManager(engineer)).join("")
+.map((engineer) => generateEngineer(engineer)).join("")
 );
 //will return.join here to return new sting
 return html.join("");
@@ -88,6 +88,7 @@ return html.join("");
 
 //will setup new module exports
 module.exports = (team) => {
+    //I created html in different file to edit the style of page
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -110,7 +111,7 @@ module.exports = (team) => {
     <div class="container">
         <div class="row">
             <div class="team-area col-12 d-flex justify-content-center">
-                ${generateEmployess(team)}
+                ${generateEmployees(team)}
             </div>
         </div>
     </div>
