@@ -19,7 +19,7 @@ const generateManager = (manager) => {
     <i class="fas fa-mug-hot">${manager.getRole()}</i></div>
     <ul class="list=group list-group-flush">
         <li class="list-group-item">${manager.getId()}</li>
-        <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}"${manager.getEmail()}<a/><li>
+        <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
         <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
     </ul>
 
@@ -36,7 +36,7 @@ const generateIntern = (intern) => {
     <i class="fas fa-mug-hot">${intern.getRole()}</i></div>
     <ul class="list=group list-group-flush">
         <li class="list-group-item">${intern.getId()}</li>
-        <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}"${intern.getEmail()}<a/><li>
+        <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
         <li class="list-group-item">School: ${intern.getSchool()}</li>
     </ul>
 
@@ -53,8 +53,8 @@ const generateEngineer = (engineer) => {
     <i class="fas fa-mug-hot">${engineer.getRole()}</i></div>
     <ul class="list=group list-group-flush">
         <li class="list-group-item">${engineer.getId()}</li>
-        <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}"${engineer.getEmail()}<a/><li>
-        <li class="list-group-item">School: ${engineer.getGitHub()}</li>
+        <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+        <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGitHub()}" target="_blank" rel ="noopener noreferrer">${engineer.getGitHub()}</a></li>
     </ul>
 
 </div>
@@ -103,7 +103,7 @@ module.exports = (team) => {
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 jumbotron mb-3">
+            <div class=" test-container col-12 jumbotron mb-3">
                 <h1 class="text-center">Team Level</h1>
             </div>
         </div>
