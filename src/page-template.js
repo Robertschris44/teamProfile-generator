@@ -54,7 +54,7 @@ const generateEngineer = (engineer) => {
     <ul class="list=group list-group-flush">
         <li class="list-group-item">${engineer.getId()}</li>
         <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}"${engineer.getEmail()}<a/><li>
-        <li class="list-group-item">School: ${engineer.getGitHubl()}</li>
+        <li class="list-group-item">School: ${engineer.getGitHub()}</li>
     </ul>
 
 </div>
