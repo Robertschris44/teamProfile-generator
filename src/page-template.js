@@ -103,7 +103,7 @@ module.exports = (team) => {
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class=" test-container col-12 jumbotron mb-3">
+            <div class="col-12 jumbotron mb-3">
                 <h1 class="text-center">Team Level</h1>
             </div>
         </div>
