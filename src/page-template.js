@@ -62,15 +62,29 @@ const generateEngineer = (engineer) => {
     
 };
 
+//setting up array to call functions
+const html = [];
+
+html.push(team.filter((employee) => employee.getRole() === "Manager")
+.map((manager) => generateManager(manager))
+);
 
 
 
+html.push(team.filter((employee) => employee.getRole() === "Intern")
+.map((intern) => generateManager(intern)).join("")
+);
 
+html.push(team.filter((employee) => employee.getRole() === "Engineer")
+.map((engineer) => generateManager(engineer)).join("")
+);
+//will return.join here to return new sting
+return html.join("");
 
 }
 
     
 
 
-
+//will setup new module exports
 module.exports = generatePage;
