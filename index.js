@@ -151,6 +151,6 @@ function createTeam(){
     console.log("New employee", teamarray)
     //fs write file goes here module 9.5.4
     fs.writeFile('./dist/index.html', generateHTML)
-    //error on createTeam, need to figure out what happened
+    //error on createTeam, need to figure out what happenedg
 }
  
