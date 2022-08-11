@@ -150,7 +150,8 @@ promptNewEmployee();
 function createTeam(){
     console.log("New employee", teamarray)
     //fs write file goes here module 9.5.4
-    fs.writeFile('./dist/index.html', generateHTML)
+    fs.writeFileSync('./dist/index.html', generateHTML(teamarray), "utf-8");
     //error on createTeam, need to figure out what happenedg
+    //ran team array through
 }
  
